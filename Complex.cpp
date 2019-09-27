@@ -38,15 +38,15 @@ double Complex::imag() const
 	}
 	Complex& Complex::operator+=(const Complex& z)
 	{
-		_real =+ z.real;
-		_imag =+ z.imag;
+		_real =+ z.real();
+		_imag =+ z.imag();
 
 		return *this;
 	}
 	Complex& Complex::operator-=(const Complex& z)
 	{
-		_real =- z.real;
-		_imag =- z.imag;
+		_real =- z.real();
+		_imag =- z.imag();
 
 		return *this;
 	}
@@ -63,7 +63,7 @@ double Complex::imag() const
 
 		return *this;
 	}
-	Complex& operator/=(const Complex& z)
+	Complex& Complex::operator/=(const Complex&z)
 	{
 	double denom;
 	double r;
@@ -80,7 +80,7 @@ double Complex::imag() const
 	}
 
 // basic math operations
-Complex& Complex::operator=(const Complec& z)
+Complex& Complex::operator=(const Complex& z)
 {
 	_real = z.real();
 	_imag = z.imag();
@@ -114,7 +114,7 @@ Complex operator*(const Complex& a, const Complex& b)
 {
 	double r;
 	double i;
-	r = a.real() * b.real() + ((-1) * b.image() * a.image());
+	r = a.real() * b.real() + ((-1) * b.imag() * a.imag());
 	i =(a.real() * b.imag()) + (b.imag() * a.real()); 
 	Complex complex_return(r,i);
 	return complex_return;
@@ -142,9 +142,9 @@ double norm(const Complex& z)
 	double r;
 	double i;
 	double a;
-	r = a.real() * a.real();
-	i = a.imag() * a.imag();
-	a = r + i
+	r = z.real() * z.real();
+	i = z.imag() * z.imag();
+	a = r + i;
 	return a;
 }
 // conj returns the complex conjugate of z
@@ -178,8 +178,5 @@ bool operator!=(const Complex& a, double r)
 std::ostream& operator<<(std::ostream& out, const Complex& z)
 {
 	out << z.real() << (z.imag() < 0? "-":"+") << z.imag() << "i";
-	return out.
+	return out;
 }
-
-#endif // __ECE231_COMPLEX_H__
-m(const Complex& z);
