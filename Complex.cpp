@@ -158,11 +158,27 @@ Complex conj(const Complex& z)
 // comparison
 bool operator==(const Complex& a, const Complex& b)
 {
-	return ((a.real() == b.real()) && (a.imag() == b.imag()));
+	if ((a.real() == b.real()) && (a.imag() == b.imag()))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
 }
 bool operator==(const Complex& a, double r)
 {
-	return ((a.real() == r) && (a.imag() == 0));
+	if (a.real() == r && a.imag() == 0)
+	{
+
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 bool operator!=(const Complex& a, const Complex& b)
 {

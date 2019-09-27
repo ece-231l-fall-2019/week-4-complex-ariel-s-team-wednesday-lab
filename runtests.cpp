@@ -36,8 +36,8 @@ int main()
 	Assert(z1.imag() == 3, "real constructor");
 	Assert(z8.imag() == 0, "real constructor");
 	Assert(norm(z1) == 25, "complex norm");
-	Assert(z1 == z2, "These are not equal");
-	Assert(z8 == z4, "These are not equal");
+	Assert(z1 != z2, "These are not equal");
+	Assert(z8 != z4, "These are not equal");
 	Assert((z1 + z2) == Complex(10, -2), "the answer is correct"); 
 	Assert((z8 + z2) == Complex(-2, -5), "the answer is correct"); 
 	Assert((z2 - z1) == Complex(2, -8), "the answer is correct");	
